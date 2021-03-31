@@ -1,3 +1,4 @@
+using CriadoresCaes.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
+//adicionar esta referência para que a EF seja invocada
+using Microsoft.EntityFrameworkCore;
 
 namespace CriadoresCaes
 {
@@ -24,6 +28,13 @@ namespace CriadoresCaes
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //************************************************************
+            // configurar o acesso à BD
+            //************************************************************
+            services.AddDbContext<CriadoresCaesDB>(
+                options => options.UseSqlServer( Configuration.GetConnectionString("myConnectionString") )
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

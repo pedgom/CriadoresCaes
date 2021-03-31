@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CriadoresCaes_tA_B.Models
+namespace CriadoresCaes.Models
 {
-    public class CriadoresCaes
+    public class CriadoresDeCaes
     {
 
 

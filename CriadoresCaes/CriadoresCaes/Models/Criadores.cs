@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CriadoresCaes_tA_B.Models
+namespace CriadoresCaes.Models
 {
 
     /// <summary>
@@ -15,7 +15,7 @@ namespace CriadoresCaes_tA_B.Models
         public Criadores()
         {
             // inicializar a lista de Cães do Criador
-            ListaDeCaes = new HashSet<CriadoresCaes>();
+            ListaDeCaes = new HashSet<CriadoresDeCaes>();
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace CriadoresCaes_tA_B.Models
         /// <summary>
         /// lista dos Cães associados ao Criador
         /// </summary>
-        public ICollection<CriadoresCaes> ListaDeCaes { get; set; }
+        public ICollection<CriadoresDeCaes> ListaDeCaes { get; set; }
     }
 }
 
