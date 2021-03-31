@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CriadoresCaes.Models
+namespace CriadoresCaes_tA_B.Models
 {
 
     /// <summary>
@@ -22,6 +22,7 @@ namespace CriadoresCaes.Models
         /// Identificador de cada uma das Raças
         /// </summary>
         public int Id { get; set; }
+
         /// <summary>
         /// identifica o nome da Raça
         /// </summary>

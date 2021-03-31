@@ -4,13 +4,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CriadoresCaes.Models
+namespace CriadoresCaes_tA_B.Models
 {
+
+
     /// <summary>
     /// Fotografias dos cães
     /// </summary>
     public class Fotografias
     {
+
         /// <summary>
         /// Identificador da fotografia
         /// </summary>

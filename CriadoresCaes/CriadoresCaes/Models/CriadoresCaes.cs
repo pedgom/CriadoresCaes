@@ -4,10 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CriadoresCaes.Models
+namespace CriadoresCaes_tA_B.Models
 {
     public class CriadoresCaes
     {
+
+
         /// <summary>
         /// Data de Compra
         /// </summary>
@@ -29,5 +31,6 @@ namespace CriadoresCaes.Models
         [ForeignKey(nameof(Criador))]  // [ForeignKey("Criador")]
         public int CriadorFK { get; set; }
         public Criadores Criador { get; set; }
+
     }
 }

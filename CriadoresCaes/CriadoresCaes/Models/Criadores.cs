@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CriadoresCaes.Models
+namespace CriadoresCaes_tA_B.Models
 {
+
     /// <summary>
     /// Descreve os Criadores de cães
     /// </summary>
@@ -16,7 +17,6 @@ namespace CriadoresCaes.Models
             // inicializar a lista de Cães do Criador
             ListaDeCaes = new HashSet<CriadoresCaes>();
         }
-
 
         /// <summary>
         /// identificador do Criador
@@ -59,6 +59,6 @@ namespace CriadoresCaes.Models
         /// lista dos Cães associados ao Criador
         /// </summary>
         public ICollection<CriadoresCaes> ListaDeCaes { get; set; }
-
     }
 }
+
