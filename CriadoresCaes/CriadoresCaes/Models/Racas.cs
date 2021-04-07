@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace CriadoresCaes.Models
     /// </summary>
     public class Racas
     {
-
+        
         public Racas()
         {
             // procurar os Cães de cada Raça e criar, para cada Raça, uma lista com os seus cães
@@ -21,6 +22,7 @@ namespace CriadoresCaes.Models
         /// <summary>
         /// Identificador de cada uma das Raças
         /// </summary>
+        [Key]  //
         public int Id { get; set; }
 
         /// <summary>

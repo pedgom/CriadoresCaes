@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,8 +9,8 @@ namespace CriadoresCaes.Models
 {
     public class CriadoresDeCaes
     {
-
-
+        [Key]
+        public int Id { get; set; }
         /// <summary>
         /// Data de Compra
         /// </summary>
