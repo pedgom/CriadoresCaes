@@ -28,6 +28,8 @@ namespace CriadoresCaes.Models
         /// <summary>
         /// Nome do criador
         /// </summary>
+         
+        [Required]
         public string Nome { get; set; }
 
         /// <summary>
@@ -38,11 +40,13 @@ namespace CriadoresCaes.Models
         /// <summary>
         /// Morada
         /// </summary>
+        [Required]
         public string Morada { get; set; }
 
         /// <summary>
         /// Código Postal
         /// </summary>
+        [Required]
         public string CodPostal { get; set; }
 
         /// <summary>
