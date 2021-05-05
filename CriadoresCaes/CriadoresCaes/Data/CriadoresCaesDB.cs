@@ -101,8 +101,9 @@ namespace CriadoresCaes.Data
         public DbSet<Criadores> Criadores { get; set; }
         public DbSet<Caes> Caes { get; set; }
         public DbSet<Racas> Racas { get; set; }
-
         public DbSet<Fotografias> Fotografias  { get; set; }
         public DbSet<CriadoresDeCaes> CriadoresDeCaes { get; set; }
+        public DbSet<Veterinarios> Veterinarios { get; set; }
+
     }
 }
