@@ -33,8 +33,7 @@ namespace CriadoresCaes.Controllers
                 return NotFound();
             }
 
-            var veterinarios = await _context.Veterinarios
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var veterinarios = await _context.Veterinarios.FirstOrDefaultAsync(m => m.Id == id);
             if (veterinarios == null)
             {
                 return NotFound();
@@ -54,15 +53,57 @@ namespace CriadoresCaes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Honorarios")] Veterinarios veterinarios)
+        public async Task<IActionResult> Create([Bind("Id,Nome,HonorarioAux")] Veterinarios veterinario)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(veterinarios);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //adicionar o valor do HonorarioAux aos dados a guardar na Base de Dados
+                //converter o valor Honorarioaux para um formato que seja compreendido pela função 'Convert'
+                veterinario.HonorarioAux = veterinario.HonorarioAux.Replace('.', ',');
+                //converter e adicionar aos dados que serão guardados na Base de Dados
+                veterinario.Honorarios = Convert.ToDecimal(veterinario.HonorarioAux);
+
+                //será que o ID que o utilizador forneceu pode ser usado?
+                //procurar na BD se o ID proposto já existe
+                //SELECT *
+                //FROM Veterinarios
+                //WHERE Id= a um valor fornecido pelo utilizador
+                //v => v.Id == veterinario.Id
+                var _auxVetererinario = await _context.Veterinarios.FirstOrDefaultAsync(v => v.Id == veterinario.Id);
+                //avaliar se posso inserir os dados
+                if (_auxVetererinario == null)
+                {
+                    try
+                    {
+                        _context.Add(veterinario);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                    catch(Exception ex)
+                    {
+                        //adicionar os dados do erro numa tabela na BD
+                        //          -nome da pessoa que está a usar a app
+                        //          -data + hora do erro
+                        //          -nome do controller
+                        //          -nome do método
+                        //          -guardar o conteúdo do ex.Message
+                        //          -e do
+                        //          ex.StackTrace
+                        
+                        //escrever os mesmos dados num ficheiro no disco rígido do servidor
+                    }
+                    
+                }
+                else
+                {
+                    //o ID já existe na Base de Dados
+                    //devolver o controlo à View
+                    ModelState.AddModelError("","O Código do Veterinário proposto já existe. Adicione um outro, por favor.");
+                }
             }
-            return View(veterinarios);
+            //se chegar aqui, é porque houve algum erro
+            return View(veterinario);
         }
 
         // GET: Veterinarios/Edit/5
